@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Виталий Арцыбашев](https://up.htmlacademy.ru/javascript/12/user/78617).
-* Наставник: `Неизвестно`.
+* Наставник: [Сэмвел Тарли](https://assets2.bigthink.com/system/idea_thumbnails/63230/size_1024/Samwell_GoT.jpg?1500307457).
 
 ---
 
