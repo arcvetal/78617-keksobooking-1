@@ -264,3 +264,95 @@ var onPinClick = function (evt) {
 };
 
 mapPins.addEventListener('click', onPinClick);
+
+// MODULE 4 task 2....
+var priceInput = document.querySelector('#price');
+var typeInput = document.querySelector('#type');
+
+var validatePrice = function () {
+  var typeValue = typeInput.value;
+  switch (typeValue) {
+    case 'flat':
+      priceInput.setAttribute('min', 1000);
+      break;
+    case 'bungalo':
+      priceInput.setAttribute('min', 0);
+      break;
+    case 'house':
+      priceInput.setAttribute('min', 5000);
+      break;
+    case 'palace':
+      priceInput.setAttribute('min', 10000);
+      break;
+  }
+};
+
+typeInput.addEventListener('change', validatePrice);
+
+
+var timeInInput = document.querySelector('#timein');
+var timeOutInput = document.querySelector('#timeout');
+
+var validateTimeIn = function () {
+  var timeInIndex = timeInInput.selectedIndex;
+  timeOutInput.selectedIndex = timeInIndex;
+};
+
+var validateTimeOut = function () {
+  var timeoutIndex = timeOutInput.selectedIndex;
+  timeInInput.selectedIndex = timeoutIndex;
+};
+
+timeInInput.addEventListener('change', validateTimeIn);
+timeOutInput.addEventListener('change', validateTimeOut);
+
+
+var roomInput = document.querySelector('#room_number');
+var capacityInput = document.querySelector('#capacity');
+
+var makeDefault = function () {
+  if (roomInput.value === '1') {
+    capacityInput.children[2].selected = true;
+    capacityInput.children[0].disabled = true;
+    capacityInput.children[1].disabled = true;
+    capacityInput.children[3].disabled = true;
+  }
+};
+
+makeDefault();
+
+var validateRoomsAndGuests = function () {
+  var roomNumber = roomInput.value;
+  for (var i = 0; i < capacityInput.children.length; i++) {
+    capacityInput.children[i].disabled = false;
+  }
+  switch (roomNumber) {
+    case '1':
+      capacityInput.children[2].selected = true;
+
+      capacityInput.children[0].disabled = true;
+      capacityInput.children[1].disabled = true;
+      capacityInput.children[3].disabled = true;
+      break;
+    case '2':
+      capacityInput.children[1].selected = true;
+
+      capacityInput.children[0].disabled = true;
+      capacityInput.children[3].disabled = true;
+      break;
+    case '3':
+      capacityInput.children[0].selected = true;
+
+      capacityInput.children[3].disabled = true;
+      break;
+    case '100':
+      capacityInput.children[3].selected = true;
+
+      capacityInput.children[0].disabled = true;
+      capacityInput.children[1].disabled = true;
+      capacityInput.children[2].disabled = true;
+      break;
+  }
+};
+
+roomInput.addEventListener('change', validateRoomsAndGuests);
